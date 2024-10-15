@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mx-auto p-8">
+        <h1 class="text-2xl font-bold text-center mb-6">Shortened URL</h1>
+
+        {% if error %}
+            <div class="bg-red-200 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                <strong class="font-bold">Error:</strong>
+                <span class="block sm:inline">{{ error }}</span>
+            </div>
+        {% else %}
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h2 class="text-xl font-semibold">Your Shortened URL:</h2>
+                <p class="mt-4 text-lg text-blue-600">
+                    <a href="{{ shortened_url.original_url }}" target="_blank">{{ shortened_url.short_url }}</a>
+                </p>
+                <p class="mt-2 text-gray-600">Original URL: {{ shortened_url.original_url }}</p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
